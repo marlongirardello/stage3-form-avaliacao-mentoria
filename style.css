@@ -1,0 +1,256 @@
+body {
+  background-color: #E5E5E5;
+  font-family: 'Poppins', sans-serif;
+}
+
+body::before {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  background-color: #293241;
+  height: 465px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+
+header h1 {
+  text-align: center;
+  font-family: 'Staatliches', cursive;
+  color:#FFFFFF;
+  margin-top: 107px;
+  font-size: 36px;
+}
+
+header p {
+  text-align: center;
+  color:#FFFFFF;
+}
+
+header img {
+  display: block;
+  margin: 0 auto 32px;
+}
+
+.top-info{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+  font-family: 'Staatliches', cursive;
+  width: 750px;
+  margin: auto;
+  padding: 45px 0px;
+  background-color: #F67669;
+  border-radius: 20px 20px 0px 0px ;
+  color:#FFFFFF;
+  text-align: center;
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  width: 750px;
+  border-radius: 0px 0px 20px 20px;
+  margin: 0 auto;
+}
+
+.two-cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 16px 64px;
+}
+
+.input-wrapper,
+.checkbox-wrapper,
+.input-wrapper2 select{
+  margin: 16px 64px;
+}
+
+.input-wrapper2 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input-wrapper3 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input-wrapper span, 
+.three-cols span{
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.input-wrapper input,
+.input-wrapper2 input,
+.input-wrapper3 input,
+.input-wrapper select {
+  padding-left: 10px;
+}
+
+.input-wrapper select {
+  width: 47%;
+}
+
+.input-wrapper textarea {
+  padding: 10px 10px;
+}
+
+.input-wrapper input, 
+.input-wrapper select,
+.input-wrapper textarea,
+.input-wrapper2 input,
+.input-wrapper3 input,
+.input-wrapper2 select,
+.input-wrapper-cols input {
+  background-color: #FAFAFC;
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+  height: 56px;
+  font-size: 18px;
+}
+
+.input-wrapper label,
+.checkbox-wrapper label,
+.input-wrapper2 label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #4E4958;
+}
+
+.input-wrapper textarea {
+  padding: 0;
+  height: 166.59px;
+  border-radius: 8px;
+
+}
+
+fieldset {
+  border: 0px;
+}
+
+fieldset .input-wrapper{
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset .three-cols-hour{
+  border: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+fieldset .two-cols{
+  border: 0px;
+}
+
+fieldset legend{
+  border-bottom: 1px solid #E6E6F0;
+  text-align: center;
+  font-family: 'Staatliches';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+  margin: 0px 64px 32px;
+  width: 622px;
+  color: #253B51;
+  padding-bottom: 8px;
+}
+
+/*Retira a flecha nativa e recoloca uma imagem em outra posição*/
+.input-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right 24px top 50%;
+}
+
+/*Ele relativiza o absoluto do .checkbox-wrapper input, colocando o .checkbox-wrapper input dentro da box que está sendo customizada*/
+.checkbox-wrapper {
+  position: relative;
+}
+
+.checkbox-wrapper label {
+  display:flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+/*É o input do checkbox nativo, mas que é colocado como invisível pelo opacity 0, mas possibilita sua passagem na troca de campo pelo tav*/
+.checkbox-wrapper input {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top:0;
+  left: 0;
+  opacity: 0;
+}
+
+/*Aqui é criado efetivamente o checkbox customizado*/
+.checkbox-wrapper label::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: block;
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+}
+
+/*Ao clicar no label ou na caixa ele marca/mostra a imagem, se fosse uma cor, ele preencheria a caixa com a cor*/
+.checkbox-wrapper input:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00016 16.1698L4.83016 11.9998L3.41016 13.4098L9.00016 18.9998L21.0002 6.99984L19.5902 5.58984L9.00016 16.1698Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+}
+
+/*Na navegação ele coloca o outline, sem isso a caixa não aparece como sendo um campo focado na navegação pelo tab*/
+.checkbox-wrapper input:focus + label::before {
+  outline: 2px solid black;
+}
+
+.three-cols {
+  display: flex;
+  gap: 32px;
+  margin: 0px 64px;
+}
+
+.three-cols > div:nth-child(1) {
+  width: 50%;
+}
+
+.three-cols-hour {
+  display: flex;
+  gap: 10px;
+}
+
+.three-cols-hour .input-wrapper3 {
+  width: 140px;
+}
+
+button {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px 40px;
+gap: 10px;
+background: #F67669;
+border-radius: 8px;
+font-family: 'Staatliches', cursive;
+color: #FFFFFF;
+border-color: #F67669;
+width: 622px;
+margin: 64px 64px;
+font-size: 20px;
+}
+
